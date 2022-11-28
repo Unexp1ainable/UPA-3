@@ -19,6 +19,8 @@ if __name__ == "__main__":
     urls = [
         "https://theonlinesweetshop.com/product/strawberry-twist-kisses-party-sweets-bucket/",
         "https://theonlinesweetshop.com/product/melody-pops/",
+        "https://theonlinesweetshop.com/product/candy-chocolate-footballs/",
+        "https://theonlinesweetshop.com/product/strawberry-pencil-bites/",
     ]
 
     get_price(urls)
