@@ -1,10 +1,9 @@
 import re
-from os import walk
 import requests
 
 if __name__ == "__main__":
     matches = set()
-    with open("source_url.txt") as inputs:
+    with open("source_urls.txt") as inputs:
         for url in inputs:
             response = requests.get(url)
             for match in re.findall(
