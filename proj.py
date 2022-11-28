@@ -1,15 +1,18 @@
 import re
 from os import walk
+import requests
 
 if __name__ == "__main__":
     matches = set()
-    for path in list(walk("htmls/"))[0][2]:
-        with open(f"htmls/{path}") as file:
-            for match in re.findall(r"https:[a-zA-Z-_\/]*theonlinesweetshop\.com\/product[a-zA-Z-_\/]*\/", file.read()):
+    with open("source_url.txt") as inputs:
+        for url in inputs:
+            response = requests.get(url)
+            for match in re.findall(
+                    r"https:[a-zA-Z-_\/]*theonlinesweetshop\.com\/product[a-zA-Z-_\/]*\/", response.text):
                 matches.add(match)
 
-    with open("products-urls.txt", "w") as out:
+    with open("urls.txt", "w") as out:
         pass
-    with open("products-urls.txt", "a") as out:
+    with open("urls.txt", "a") as out:
         for match in matches:
             out.write(match+"\n")
